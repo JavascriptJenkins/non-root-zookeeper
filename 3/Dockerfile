@@ -3,6 +3,9 @@ LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
     HOME="/"
+    
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+&& ln -s /usr/local/bin/docker-entrypoint.sh /
 
 # Install required system packages and dependencies
 RUN bitnami-pkg install java-1.8.161-0 --checksum eb289afc43eda33d5920294460dc256f6543318506ca5a540bba9073412cfd06
